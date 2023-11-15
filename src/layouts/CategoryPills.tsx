@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, Container } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import Button from "../components/Button"
 import { useEffect, useRef, useState } from "react"
 
