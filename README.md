@@ -40,4 +40,8 @@ You should see a link in the terminal to launch the application in your browser.
 
 OR Press letter O to launch.
 
+Vist the deployed app on vercel:
+
+https://golden-tube.vercel.app/
+
 # Thank you!
