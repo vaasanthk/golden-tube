@@ -131,7 +131,7 @@ const Sidebar = () => {
         <SmallSidebarItem title="Home" url="/" src="./home.svg" alt="home" />
         <SmallSidebarItem
           src="./shorts.svg"
-          alt="shorts"
+          alt="shorts-icon"
           title="Shorts"
           url="/shorts"
         />
