@@ -28,8 +28,8 @@ export function PageHeaderFirstSection({
           <img width={40} height={40} src="/logo.png" alt="logo" />
           <h1
             className="font-extrabold text-[23px]
-               text-white flex items-center
-               bg-gradient-to-r from-white to-yellow-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-yellow-500 hover:to-white hover:text-transparent           
+               flex items-center
+               bg-gradient-to-r from-white to-yellow-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-yellow-500 hover:to-white hover:text-transparent   hover:bg-clip-text         
           "
           >
             GoldenTube
