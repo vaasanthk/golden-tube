@@ -87,7 +87,7 @@ const PageHeader = () => {
           size={"icon"}
           className="w-10 h-10 flex-shrink-0 "
         >
-          <img src="/mic.png" alt="mic" />
+          <img src="/mic.png" alt="mic-icon" />
         </Button>
       </form>
 
