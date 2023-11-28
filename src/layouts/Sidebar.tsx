@@ -10,7 +10,6 @@ import {
   Scissors,
 } from "lucide-react"
 import React, { Children, ElementType, useState } from "react"
-import Button from "../components/Button"
 import { playlists, subscriptions } from "../data/sidebar"
 import { twMerge } from "tailwind-merge"
 import { useSidebarContext } from "../contexts/SidebarProvider"
@@ -77,15 +76,14 @@ function LargeSidebarSection({
       {title && <div className="ml-4 mt-2  mb-1 font-bold">{title}</div>}
       {visibleChildren}
       {showExpandButton && (
-        <Button
+        <a
           onClick={() => setIsExpanded((e) => !e)}
-          variant={"ghost"}
           className="w-full flex items-center rounded-lg gap-4 p-3
-          outline-none hover:bg-[#fcdc7b]/10"
+          outline-none cursor-pointer"
         >
           <ButtonIcon className="w-6 h-6 " />
-          <div>{isExpanded ? "Show Less" : "Show More"}</div>
-        </Button>
+          <div className="link">{isExpanded ? "Show Less" : "Show More"}</div>
+        </a>
       )}
     </div>
   )
@@ -103,8 +101,8 @@ function LargeSidebarItem({
     <a
       href={url}
       className={`w-full flex items-center rounded-lg 
-gap-4 p-3 hover:bg-[#fcdc7b]/10 text-sm  ${
-        isActive ? "font-bold bg-[#fcdc7b]/20" : undefined
+gap-4 p-3 hover:bg-[#fcdc7b]/30 text-sm  mb-1 ${
+        isActive ? "font-bold bg-[#fcdc7b]/10" : undefined
       }`}
     >
       {Icon ? (
@@ -125,7 +123,7 @@ const Sidebar = () => {
   return (
     <>
       <aside
-        className={`sticky top-0 overflow-y-auto 
+        className={`w-[70px] sticky top-0 overflow-y-auto 
   scrollbar-hidden pb-4 flex flex-col ml-1 ${
     isLargeOpen ? "lg:hidden" : "lg:flex"
   }`}
@@ -139,7 +137,7 @@ const Sidebar = () => {
         />
         <SmallSidebarItem
           Icon={Clapperboard}
-          title="Subscriptions"
+          title="Subscript..."
           url="/subscriptions"
         />
         <SmallSidebarItem Icon={Library} title="Library" url="/library" />
@@ -167,7 +165,7 @@ const Sidebar = () => {
       >
         <div
           className="lg:hidden pt-4 pb-4 px-2 sticky top-0
-        bg-[#0e1013]"
+        bg-[#0e1013] "
         >
           <PageHeaderFirstSection />
         </div>
@@ -195,6 +193,7 @@ const Sidebar = () => {
           />
         </LargeSidebarSection>
         <hr className="border-[#fcdc7b]/40" />
+
         <LargeSidebarSection visibleItemCount={5}>
           <LargeSidebarItem title="Library" Icon={Library} url="/library" />
           <LargeSidebarItem title="History" Icon={History} url="/history" />
@@ -224,7 +223,8 @@ const Sidebar = () => {
           ))}
         </LargeSidebarSection>
         <hr className="border-[#fcdc7b]/40" />
-        <LargeSidebarSection title="Subscriptions">
+
+        <LargeSidebarSection title="Subscriptions" visibleItemCount={5}>
           {subscriptions.map((subscription) => (
             <LargeSidebarItem
               key={subscription.id}

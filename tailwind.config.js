@@ -11,8 +11,8 @@ export default {
           hover: "#3a3e49",
           border: colors.neutral[600],
           text: colors.neutral[400],
-          light: colors.neutral[200],
-          ["light-hover"]: "#fbfcfd",
+          light: "#dacd75",
+          ["light-hover"]: "#faeb86",
         },
       },
       fontFamily: {

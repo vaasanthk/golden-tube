@@ -19,7 +19,7 @@ export function PageHeaderFirstSection({
         showFullSearch ? "hidden" : "flex"
       }`}
     >
-      <Button onClick={toggle} size={"icon"} variant={"ghost"}>
+      <Button onClick={toggle} size={"icon"} variant={"ghost"} className="GFG">
         {/* <Menu size={30} /> */}
         <img src="/menu.svg" alt="menu" />
       </Button>
@@ -28,7 +28,8 @@ export function PageHeaderFirstSection({
           <img width={40} height={40} src="/logo.png" alt="logo" />
           <h1
             className="font-extrabold text-[23px]
-               text-white flex items-center           
+               text-white flex items-center
+               bg-gradient-to-r from-white to-yellow-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-yellow-500 hover:to-white hover:text-transparent           
           "
           >
             GoldenTube
@@ -64,11 +65,11 @@ const PageHeader = () => {
             <ArrowLeft />
           </Button>
         )}
-        <div className="flex flex-grow max-w-[750px]">
+        <div className="flex flex-grow max-w-[750px] items-center">
           <input
             type="search"
             placeholder="Search"
-            className="rounded-l-full w-full border border-secondary-border
+            className="h-9 rounded-l-full w-full border border-secondary-border
             bg-transparent  placeholder-gray-400 placeholder-opacity-70
             shadow-inner shadow-secondary py-1 text-lg px-4 focus:border-gray-500  transition duration-300 focus:border-2
             outline-none
@@ -76,13 +77,17 @@ const PageHeader = () => {
           />
           <Button
             className="py-2 px-4 rounded-r-full border-secondary-border
-           border border-l-0 flex-shrink-0 "
+           border h-9 border-l-0 flex-shrink-0 "
           >
-            <img src="/search.svg" alt="search" width={24} height={24} />
+            <img src="/search.svg" alt="search" width={20} height={20} />
           </Button>
         </div>
-        <Button type="button" size={"icon"} className="w-11 h-11 flex-shrink-0">
-          <img src="/mic.png" alt="mic" width={24} height={24} />
+        <Button
+          type="button"
+          size={"icon"}
+          className="w-10 h-10 flex-shrink-0 "
+        >
+          <img src="/mic.png" alt="mic" />
         </Button>
       </form>
 
@@ -95,9 +100,9 @@ const PageHeader = () => {
           onClick={() => setShowFullSearch(!showFullSearch)}
           variant={"ghost"}
           size={"icon"}
-          className="md:hidden"
+          className="md:hidden "
         >
-          <Search />
+          <img src="/search.svg" alt="search" width={20} height={20} />
         </Button>
 
         <Button

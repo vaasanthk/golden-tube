@@ -13,7 +13,10 @@ export const buttonStyles = cva(
         light: [
           "bg-secondary-light",
           "hover:bg-secondary-light-hover",
-          "text-secondary",
+          "text-black",
+          "font-semibold",
+          "flex",
+          "items-center",
         ],
       },
       size: {
