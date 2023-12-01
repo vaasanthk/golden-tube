@@ -1,14 +1,16 @@
 import { ArrowLeft } from "lucide-react"
 import Button from "../components/Button"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useSidebarContext } from "../contexts/SidebarProvider"
 
 type PageHeaderFirstSectionProps = {
   showFullSearch?: boolean
+  showScreenSize?: boolean
 }
 
 export function PageHeaderFirstSection({
   showFullSearch = false,
+  showScreenSize = false,
 }: PageHeaderFirstSectionProps) {
   const { toggle } = useSidebarContext()
 
@@ -16,7 +18,7 @@ export function PageHeaderFirstSection({
     <div
       className={`items-center flex-shrink-0
       transition-transform  duration-1000 focus:border-2 gap-2 ${
-        showFullSearch ? "hidden" : "flex"
+        showFullSearch && showScreenSize ? "hidden" : "flex"
       }`}
     >
       <Button onClick={toggle} size={"icon"} variant={"ghost"} className="GFG">
@@ -42,19 +44,43 @@ export function PageHeaderFirstSection({
 
 const PageHeader = () => {
   const [showFullSearch, setShowFullSearch] = useState(false)
+  const [showScreenSize, setShowScreenSize] = useState(false)
+
+  useEffect(() => {
+    // Check screen width on mount and resize
+    const handleResize = () => {
+      const screenWidth = window.innerWidth
+      // Set the state based on screen width
+      setShowScreenSize(screenWidth <= 640) // Adjust the width as needed
+    }
+
+    // Initial check
+    handleResize()
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize)
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   return (
     <div
       className="flex justify-between gap-10
   lg:gap-20 pt-4 mb-6 mx-4 "
     >
-      <PageHeaderFirstSection showFullSearch={showFullSearch} />
+      <PageHeaderFirstSection
+        showFullSearch={showFullSearch}
+        showScreenSize={showScreenSize}
+      />
       <form
         className={`gap-4 justify-center flex-grow
       ${showFullSearch ? "flex" : "hidden md:flex"}
       `}
       >
-        {showFullSearch && (
+        {showFullSearch && showScreenSize && (
           <Button
             onClick={() => setShowFullSearch(false)}
             type="button"
