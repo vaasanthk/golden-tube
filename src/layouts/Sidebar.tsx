@@ -43,15 +43,16 @@ function SmallSidebarItem({ Icon, title, url, src, alt }: SidebarProps) {
   return (
     <a
       href={url}
-      className="py-4  flex flex-col items-center gap-1 
-    rounded-lg hover:bg-[#2c2f38] whitespace-nowrap text-ellipsis"
+      className="py-4 flex flex-col items-center gap-1 
+    rounded-lg hover:bg-[#2c2f38] whitespace-nowrap text-ellipsis
+    "
     >
       {Icon ? (
         <Icon className="w-6 h-6 outline-none" />
       ) : (
-        <img src={src} alt={alt} className="w-6 h-6 outline-none" />
+        <img src={src} alt={alt} className="w-5 h-5 outline-none" />
       )}
-      <span className="text-sm">{title}</span>
+      <span className="text-[10px]">{title}</span>
     </a>
   )
 }
@@ -128,7 +129,7 @@ const Sidebar = () => {
     isLargeOpen ? "lg:hidden" : "lg:flex"
   }`}
       >
-        <SmallSidebarItem title="Home" url="/" src="./home.svg" alt="home" />
+        <SmallSidebarItem title="Home" url="/" src="./home.png" alt="home" />
         <SmallSidebarItem
           src="./shorts.svg"
           alt="shorts-icon"
