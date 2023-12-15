@@ -175,7 +175,7 @@ const Sidebar = () => {
           <LargeSidebarItem
             isActive
             title="Home"
-            src="./home.svg"
+            src="./home.png"
             alt="home"
             url="/home"
           />
